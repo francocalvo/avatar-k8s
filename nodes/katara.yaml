@@ -1,0 +1,15 @@
+machine:
+  install:
+    disk: /dev/nvme0n1
+    image: ghcr.io/siderolabs/installer:v1.10.1
+    wipe: true
+  network:
+    hostname: katara
+    interfaces:
+      - interface: enp3s0
+        addresses:
+          - 192.168.1.4
+        routes:
+          - network: 0.0.0.0/0
+            gateway: 192.168.1.1
+        dhcp: true

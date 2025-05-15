@@ -1,0 +1,18 @@
+apiVersion: v1alpha1
+kind: VolumeConfig
+name: EPHEMERAL
+provisioning:
+  diskSelector:
+    match: system_disk
+  maxSize: 100GB
+  grow: false
+---
+apiVersion: v1alpha1
+kind: UserVolumeConfig
+name: data
+provisioning:
+  diskSelector:
+    match: system_disk
+  minSize: 1GB
+filesystem:
+  type: ext4
